@@ -25,6 +25,7 @@ var gameStart;          //press the button to get started
 var resetGame;
 var wins;
 var counter = 10;
+var startBtn = $("#startBtn")
 
 // to start game - click on startBtn
 //computer will select a word from wordList to place in _ _ _ _ in currentWord space
@@ -45,17 +46,36 @@ startGame()
 console.log("this is my letter in word" +  lettersInWord);
 document.onkeyup("#startBtn"); ("this is my current word" + currentWord);*/
 
-function startGame (){
+
+ function startGame (){
+
+        currentWord = wordList[Math.floor(Math.random() * wordList.length)];
+        lettersInWord = currentWord.split("");
+       
+    };
+
+
+startBtn.click(function(){
+   
+    startGame()
+    guessWord()
+    console.log(lettersInWord);
+    console.log(currentWord)
+    console.log("this is my letter in word" +  lettersInWord);
+})   
+
+function guessWord(){
 
     currentWord = wordList[Math.floor(Math.random() * wordList.length)];
     lettersInWord = currentWord.split("");
-   
-};
-startGame()
-console.log("this is my letter in word" +  lettersInWord);
-/*<button id="startBtn" onclick="gameStart();"></button>*/ 
-   
 
+}
+
+function pushdashes(){
+
+
+    
+}
 
 
 for (remainingGuesses; counter.length < 10; resetGame){
