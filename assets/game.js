@@ -35,7 +35,7 @@ var counter = 10;
 // if not, then game resets
 
 
-function startGame (); {
+/*function startGame (); {
 
     currentWord = wordList[Math.floor(Math.random() * wordList.length)];
     lettersInWord = currentWord.split("");
@@ -43,8 +43,18 @@ function startGame (); {
 };
 startGame()
 console.log("this is my letter in word" +  lettersInWord);
-document.onkeyup("#startBtn"); ("this is my current word" + currentWord);
+document.onkeyup("#startBtn"); ("this is my current word" + currentWord);*/
 
+function startGame (){
+
+    currentWord = wordList[Math.floor(Math.random() * wordList.length)];
+    lettersInWord = currentWord.split("");
+   
+};
+startGame()
+console.log("this is my letter in word" +  lettersInWord);
+/*<button id="startBtn" onclick="gameStart();"></button>*/ 
+   
 
 
 
@@ -54,12 +64,12 @@ for (remainingGuesses; counter.length < 10; resetGame){
 
 for ( var i = 0; i < wordList.length; i++) {}
 
-function guessedLetters (){
+/*function guessedLetters (){
     guessedLetters = correctGuess[i];
     correctGuess = lettersInWord("");
 }
-guessedLetters()
-console.log ("this is a correct letter" + correctGuess)
+guessedLetters();
+console.log ("this is a correct letter" + correctGuess)*/
 
 function resetGame(){
 remainingGuesses = 0
