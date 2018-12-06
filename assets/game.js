@@ -16,25 +16,24 @@ var wordList = [
 
 var guessedLetters = [];    //list letters guessed
 var currentWord = [];       //randomize selection of wordList
-var correctGuess = [];          //input letter
-var lettersInWord = [];
-var wrongGuess;                //counter will count down by 1
-var remainingGuesses;           //display how many guesses are left
-var gameOver;               //you win image or game over image
-var gameStart;          //press the button to get started
+var correctGuess = [];      //input letter
+var lettersInWord = [];     //each letter in word "split"
+var wrongGuess;             //counter will count down by 1
+var remainingGuesses;       //display how many guesses are left
+//var gameOver;               //you win image or game over image
+var gameStart;              //click the button to get started
 var resetGame;
 var wins;
 var counter = 10;
 var startBtn = $("#startBtn")
 
-// to start game - click on startBtn
-//computer will select a word from wordList to place number of _ _ _ _ in currentWord area on page
-//correctGuess will add letter to _ _ _ _ blanks
-//wrongGuess will make counter count down by 1 and which is shown in Guesses Remaining
-// and also log to guessedLetters
-//if user guesses word in 10 tries, then win count goes up by 1
+//Pseudo Code for Guessing Game:
+// to start game - click on "Press the Button to Get Started!"
+//computer will select a randomized word from wordList to place number of _ _ _ _ in currentWord div = word length
+//Guess a letter - if correctGuess: correct letter will be added to correct spot of _ _ _ _ and log to Letters Guessed; 
+//if wrongGuess then make counter count down by 1 - displayed on screen in Guesses Remaining
+//if user guesses word in 10 tries or less, then win count goes up by 1
 // if not, then game resets
-
 
 
 function startGame() {
@@ -48,38 +47,54 @@ startBtn.click(function () {
 
     startGame()
     pushDashes()
+    letterGuessed();
     console.log(lettersInWord);
     console.log(currentWord);
     console.log("this is my letter in word" + lettersInWord);
 })
 
-// function guessWord() {
-
-//     // currentWord = wordList[Math.floor(Math.random() * wordList.length)];
-//     // lettersInWord = currentWord.split("");
-
-// }
 
 function pushDashes() {
-    
+
     for (var i = 0; i < lettersInWord.length; i++) {
         var dash = document.createTextNode("_");
-       
+
         var element = document.getElementById("currentWord");
         element.appendChild(dash);
     }
 }
 pushDashes();
 
-function correctLetter(){
-for ( var x = 0; x < lettersInWord.length; x++){
+//Guess a letter - if correctGuess: correct letter will be added to correct spot of _ _ _ _ and log to Letters Guessed; 
+//if wrongGuess then make counter count down by 1 - displayed on screen in Guesses Remaining
 
-    var letterDash = $("<button>")
-    $(letterDash).addClass("letter-button letter letter-button-color");
-    letterDash.attr("data-letter",lettersInWord[x]);
-    $("#buttons").append(letterDash);
+
+function letterGuessed() {
+    for (var i = 0; i < lettersInWord.length; i++)
+        var guessedLetters = $("<div>");
+    guessedLetters.addClass("_")
+    $(".lettersInWord").textContent = guessedLetters[i];
+    guessedLetters.append(dash);
+
 }
+lettersGuessed();
+
+
+if (guessedLetters === correctGuess) {
+
+    $(".lettersInWord").textContent = guessedLetters[i];
+    guessedLetters.append(dash);
 }
+
+else {
+    guessedLetters.push(guessedLetters);
+    console.log(guessedLetters);
+}
+
+
+
+
+
 
 
 
@@ -115,16 +130,7 @@ for ( var x = 0; x < lettersInWord.length; x++){
 
 
 
-// if (guessedLetters === correctGuess[i]) {
-//     let lettersInWord = document.createElement('p');
-//     lettersInWord.textContent = guessedLetters[i];
-//     guessedLetters.appendChild(lettersInWord);
-// }
 
-// else {
-//     guessedLetters.push(guessedLetters);
-//     console.log(guessedLetters);
-// }
 
 // document.onkeyup = function (event) {
 //     keyPressed = event.key.toLowerCase();
